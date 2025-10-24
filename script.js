@@ -12,6 +12,43 @@ document.addEventListener('DOMContentLoaded', function() {
           hamburger.classList.toggle('active');
       });
   }
+// ===============================
+// 📱 MENU HAMBURGER
+// ===============================
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+  
+  if (hamburger && navMenu) {
+      console.log('✅ Menu hamburger trouvé');
+      
+      hamburger.addEventListener('click', function() {
+          console.log('🖱️ Hamburger cliqué');
+          navMenu.classList.toggle('active');
+          hamburger.classList.toggle('active');
+      });
+      
+      // Fermer le menu en cliquant sur un lien
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+              navMenu.classList.remove('active');
+              hamburger.classList.remove('active');
+          });
+      });
+      
+      // Fermer le menu en cliquant à l'extérieur
+      document.addEventListener('click', function(e) {
+          if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+              navMenu.classList.remove('active');
+              hamburger.classList.remove('active');
+          }
+      });
+      
+  } else {
+      console.log('❌ Menu hamburger non trouvé');
+  }
+});
 
   // ===============================
   // 🧭 CHANGEMENT DE NAVBAR AU SCROLL

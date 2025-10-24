@@ -624,3 +624,79 @@
   height: 24px;
   filter: brightness(0) invert(1);
 }
+/* =============================== */
+/* 📱 HAMBURGER MENU MOBILE */
+/* =============================== */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animation quand le menu est actif */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Version mobile */
+@media (max-width: 768px) {
+  .hamburger {
+      display: flex;
+  }
+  
+  .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background: #161b22;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      transition: right 0.3s ease;
+      z-index: 1000;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+  }
+  
+  .nav-menu.active {
+      right: 0;
+  }
+  
+  .nav-link {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+  }
+  
+  /* Overlay quand le menu est ouvert */
+  .nav-menu.active::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: -1;
+  }
+}
