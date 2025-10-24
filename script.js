@@ -1,28 +1,25 @@
 // ===============================
-// 📱 MENU HAMBURGER
+// 📱 MENU HAMBURGER - VERSION CORRECTE
 // ===============================
 document.addEventListener('DOMContentLoaded', function() {
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('navMenu');
   const navbar = document.getElementById('navbar');
 
-  if (hamburger && navMenu) {
-      hamburger.addEventListener('click', function() {
-          navMenu.classList.toggle('active');
-          hamburger.classList.toggle('active');
-      });
-  }
-// ===============================
-// 📱 MENU HAMBURGER
-// ===============================
-document.addEventListener('DOMContentLoaded', function() {
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('navMenu');
-  
+  console.log('🔍 Éléments trouvés:', {
+      hamburger: !!hamburger,
+      navMenu: !!navMenu,
+      navbar: !!navbar
+  });
+
+  // ===============================
+  // 📱 MENU HAMBURGER
+  // ===============================
   if (hamburger && navMenu) {
       console.log('✅ Menu hamburger trouvé');
       
-      hamburger.addEventListener('click', function() {
+      hamburger.addEventListener('click', function(e) {
+          e.stopPropagation(); // Important pour mobile
           console.log('🖱️ Hamburger cliqué');
           navMenu.classList.toggle('active');
           hamburger.classList.toggle('active');
@@ -39,7 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Fermer le menu en cliquant à l'extérieur
       document.addEventListener('click', function(e) {
-          if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+          if (navMenu.classList.contains('active') && 
+              !hamburger.contains(e.target) && 
+              !navMenu.contains(e.target)) {
               navMenu.classList.remove('active');
               hamburger.classList.remove('active');
           }
@@ -48,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
       console.log('❌ Menu hamburger non trouvé');
   }
-});
 
   // ===============================
   // 🧭 CHANGEMENT DE NAVBAR AU SCROLL

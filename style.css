@@ -628,12 +628,16 @@
 /* 📱 HAMBURGER MENU MOBILE */
 /* =============================== */
 
+
+
+/* Cacher le hamburger sur desktop */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 4px;
   z-index: 1001;
+  padding: 8px;
 }
 
 .hamburger span {
@@ -644,7 +648,7 @@
   transform-origin: center;
 }
 
-/* Animation quand le menu est actif */
+/* Animation du hamburger */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(6px, 6px);
 }
@@ -657,13 +661,18 @@
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Version mobile */
+/* =============================== */
+/* 📱 VERSION MOBILE */
+/* =============================== */
 @media (max-width: 768px) {
+  /* Afficher le hamburger */
   .hamburger {
       display: flex;
   }
   
+  /* Cacher le menu normal */
   .nav-menu {
+      display: flex; /* Important: le cacher avec position, pas display:none */
       position: fixed;
       top: 0;
       right: -100%;
@@ -671,7 +680,8 @@
       height: 100vh;
       background: #161b22;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
+      padding-top: 80px;
       align-items: center;
       gap: 2rem;
       transition: right 0.3s ease;
@@ -679,6 +689,7 @@
       box-shadow: -5px 0 15px rgba(0,0,0,0.3);
   }
   
+  /* Menu ouvert */
   .nav-menu.active {
       right: 0;
   }
@@ -686,9 +697,11 @@
   .nav-link {
       font-size: 1.2rem;
       padding: 1rem 2rem;
+      width: 100%;
+      text-align: center;
   }
   
-  /* Overlay quand le menu est ouvert */
+  /* Overlay pour fermer le menu */
   .nav-menu.active::before {
       content: '';
       position: fixed;
@@ -698,5 +711,61 @@
       height: 100%;
       background: rgba(0,0,0,0.5);
       z-index: -1;
+  }
+}
+/* =============================== */
+/* 📱 MENU HAMBURGER MOBILE - URGENT */
+/* =============================== */
+
+@media (max-width: 768px) {
+  /* Afficher le hamburger */
+  .hamburger {
+      display: flex !important;
+      position: relative;
+      z-index: 1001;
+  }
+  
+  /* Cacher le menu desktop */
+  .nav-menu {
+      position: fixed !important;
+      top: 0 !important;
+      right: -100% !important;
+      width: 250px !important;
+      height: 100vh !important;
+      background: #161b22 !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      padding-top: 80px !important;
+      align-items: center !important;
+      gap: 2rem !important;
+      transition: right 0.3s ease !important;
+      z-index: 1000 !important;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.3) !important;
+      display: flex !important; /* IMPORTANT */
+  }
+  
+  /* Menu ouvert */
+  .nav-menu.active {
+      right: 0 !important;
+  }
+  
+  .nav-link {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      width: 80%;
+      text-align: center;
+      color: white !important;
+  }
+  
+  /* Overlay sombre */
+  .nav-menu.active::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 999;
   }
 }
