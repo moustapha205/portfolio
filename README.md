@@ -26,7 +26,12 @@ Portfolio professionnel développé avec les technologies modernes du web. Prés
 - **Bases de données:** MySQL, MongoDB
 - **Outils:** Git, VS Code, Docker
 
+
+## 🌐 Live Demo
+🔗 **Portfolio en ligne:** https://moustaphamk-portfolio.netlify.app/
+
 ## 🚀 Installation
+
 
 ```bash
 # Cloner le repository
