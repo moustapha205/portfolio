@@ -3,64 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos - Portfolio Développeur Full Stack</title>
+    <title>À propos — Moustapha Kane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <span class="logo-bracket">&lt;</span>
-                <span class="logo-text">DevPortfolio</span>
-                <span class="logo-bracket">/&gt;</span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link">Accueil</a></li>
-                <li><a href="about.html" class="nav-link active">À propos</a></li>
-                <li><a href="projects.html" class="nav-link">Projets</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- About Section -->
-    <section class="about">
-        <div class="container about-container">
-            <div class="about-text">
-                <h1>À propos de moi</h1>
-                <p>Développeur full-stack passionné, je crée des applications web complètes en maîtrisant à la fois le front-end (HTML, CSS, JavaScript, React) et le back-end (Node.js, Python, PHP). Mon approche allie rigueur technique et sens créatif pour concevoir des solutions robustes et des interfaces utilisateur intuitives.</p>
-                <br>
-                <p>Constamment en veille technologique, j'explore les nouvelles tendances du développement web et j'intègre les meilleures pratiques dans mes projets. Que ce soit pour une application complexe ou un site vitrine, j'accorde la même importance à la performance, la sécurité et l'expérience utilisateur finale.</p>
-                <br>
-                <p>Mon objectif : transformer des idées en solutions digitales efficaces qui non seulement répondent aux besoins fonctionnels, mais dépassent également les attentes des utilisateurs.</p>
-                <a href="projects.html" class="btn">Voir mes projets</a>
-            </div>
-            <div class="about-photo">
-                <img src="images/image.png" alt="Photo de moustapha">
-            </div>
-        </div>
-    </section>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<canvas id="bg-canvas"></canvas>
 
-    <footer class="footer">
-        <div class="container footer-container">
-            <p>&copy; 2025 DevPortfolio - Tous droits réservés.</p>
-            <p>Créé avec ❤️ par Moustapha Mbacke Kane</p>
-        </div>
-        <div class="social-links">
-            <a href="https://github.com/Moustapha205" target="_blank" class="social-btn github">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-            </a>
-            <a href="https://www.linkedin.com/in/moustapha-kane-5058a9346" target="_blank" class="social-btn linkedin">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" alt="LinkedIn">
-            </a>
-        </div>
-    </footer>
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="logo"><span class="cyan">&lt;</span>MK<span class="cyan">/&gt;</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="nl">Accueil</a></li>
+            <li><a href="about.html" class="nl active">À propos</a></li>
+            <li><a href="projects.html" class="nl">Projets</a></li>
+            <li><a href="contact.html" class="nl">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav-btn">Me contacter</a>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+</nav>
 
-    <script src="script.js"></script>
+<section class="page-top">
+    <div class="wrap">
+        <span class="tag fade-up">À propos</span>
+        <h1 class="page-title fade-up">Mon parcours,<br><span class="cyan">ma passion</span></h1>
+    </div>
+</section>
+
+<section class="about-sec">
+    <div class="wrap about-grid">
+
+        <div class="about-left fade-up">
+            <div class="photo-frame">
+                <img src="images/image.png" alt="Moustapha Kane">
+                <div class="frame-deco"></div>
+            </div>
+            <div class="info-card">
+                <div class="info-line"><span>📍</span><span>Thiais, Île-de-France</span></div>
+                <div class="info-line"><span>🎓</span><span>IMIE Paris — DWWM 2026</span></div>
+                <div class="info-line"><span>💼</span><span>Stage chez NEOTECHRAMS</span></div>
+                <a href="contact.html" class="btn-c" style="display:flex;justify-content:center;margin-top:1rem;">Me contacter →</a>
+            </div>
+        </div>
+
+        <div class="about-right">
+            <div class="fade-up">
+                <h2>Développeur Full Stack <span class="cyan">passionné</span></h2>
+                <p class="about-lead">Je suis Moustapha Mbacké Kane, développeur web en formation à l'IMIE Paris, actuellement en stage chez NEOTECHRAMS où je travaille sur des projets concrets.</p>
+            </div>
+            <div class="fade-up"><p>Mon approche allie rigueur technique et sens du détail. Je maîtrise l'ensemble du stack web — du front-end avec React et JavaScript, au back-end avec PHP Symfony, Node.js et MySQL.</p></div>
+            <div class="fade-up"><p>En stage, j'ai développé une vidéo promotionnelle programmatique avec Remotion/React, un formulaire multi-étapes intelligent avec backend PHP sécurisé, et participé au développement de la plateforme e-commerce ShoppingFree.</p></div>
+
+            <div class="values fade-up">
+                <div class="val"><span>⚡</span><div><h4>Performance</h4><p>Interfaces rapides, optimisées et accessibles.</p></div></div>
+                <div class="val"><span>🔒</span><div><h4>Sécurité</h4><p>Protection CSRF, validation serveur, requêtes préparées.</p></div></div>
+                <div class="val"><span>🎯</span><div><h4>Précision</h4><p>Attention au détail dans chaque ligne de code.</p></div></div>
+            </div>
+
+            <div class="timeline-wrap fade-up">
+                <h3>Parcours</h3>
+                <div class="timeline">
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-body"><span class="tl-date">Mars – Avril 2026</span><h4>Stage — NEOTECHRAMS</h4><p>Remotion, SmartForm PBE, développement front et back-end.</p></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-body"><span class="tl-date">Déc. 2025 – Mai 2026</span><h4>Projet fil rouge — IMIE Paris</h4><p>ShoppingFree — e-commerce complet avec Symfony et Stripe.</p></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-body"><span class="tl-date">Oct. 2024 – Juin 2026</span><h4>Formation DWWM — IMIE Paris</h4><p>Titre Professionnel Développeur Web et Web Mobile.</p></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-body"><span class="tl-date">Juin 2023</span><h4>Baccalauréat Scientifique</h4><p>Collège Saint Gabriel.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand"><a href="index.html" class="logo"><span class="cyan">&lt;</span>MK<span class="cyan">/&gt;</span></a><p>Moustapha Mbacké Kane — Développeur Full Stack</p></div>
+        <div class="footer-links"><a href="index.html">Accueil</a><a href="about.html">À propos</a><a href="projects.html">Projets</a><a href="contact.html">Contact</a></div>
+        <div class="footer-socials">
+            <a href="https://github.com/Moustapha205" target="_blank" class="soc-btn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"></a>
+            <a href="https://www.linkedin.com/in/moustapha-kane-5058a9346" target="_blank" class="soc-btn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" alt="LinkedIn"></a>
+        </div>
+    </div>
+    <p class="footer-copy">&copy; 2025 Moustapha Kane — Tous droits réservés</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

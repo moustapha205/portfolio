@@ -3,76 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Portfolio Développeur Full Stack</title>
+    <title>Contact — Moustapha Kane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <style>
+        /* Styles spécifiques contact */
+        .mf-success {
+            display: none !important;
+        }
+        .mf-success.show {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px 10px;
+            animation: stepIn .5s ease forwards;
+        }
+        .mf-success h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 12px 0 10px;
+            color: #f0f6fc;
+        }
+        .mf-success-text {
+            font-size: 15px;
+            color: #8b949e;
+            margin-bottom: 16px;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+        .mf-success-badge {
+            padding: 9px 22px;
+            background: rgba(0,229,255,0.08);
+            border: 1px solid rgba(0,229,255,0.25);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #00e5ff;
+            margin-bottom: 16px;
+            font-family: 'Syne', sans-serif;
+        }
+        .mf-note {
+            font-size: 13px;
+            color: #8b949e;
+        }
+        .mf-note strong { color: #f0f6fc; }
+    </style>
 </head>
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <span class="logo-bracket">&lt;</span>
-                <span class="logo-text">DevPortfolio</span>
-                <span class="logo-bracket">/&gt;</span>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<canvas id="bg-canvas"></canvas>
+
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="logo"><span class="cyan">&lt;</span>MK<span class="cyan">/&gt;</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="nl">Accueil</a></li>
+            <li><a href="about.html" class="nl">À propos</a></li>
+            <li><a href="projects.html" class="nl">Projets</a></li>
+            <li><a href="contact.html" class="nl active">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav-btn">Me contacter</a>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+</nav>
+
+<section class="page-top">
+    <div class="wrap">
+        <span class="tag fade-up">Contact</span>
+        <h1 class="page-title fade-up">Travaillons <span class="cyan">ensemble</span></h1>
+        <p class="page-sub fade-up">Un projet, une opportunité ? Je réponds dans les 24h.</p>
+    </div>
+</section>
+
+<section class="contact-sec">
+    <div class="wrap contact-wrap">
+
+        <!-- ===== INFOS ===== -->
+        <div class="contact-info fade-up">
+            <h2>Restons en contact</h2>
+            <p>Disponible pour des opportunités après ma formation DWWM. N'hésitez pas à me contacter.</p>
+            <div class="c-cards">
+                <div class="c-card"><span>📍</span><div><h4>Localisation</h4><p>Thiais, Île-de-France</p></div></div>
+                <div class="c-card"><span>🎓</span><div><h4>Formation</h4><p>IMIE Paris — DWWM 2026</p></div></div>
+                <div class="c-card"><span>💼</span><div><h4>Stage</h4><p>NEOTECHRAMS — Pôle Front-End</p></div></div>
             </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link active">Accueil</a></li>
-                <li><a href="about.html" class="nav-link">À propos</a></li>
-                <li><a href="projects.html" class="nav-link">Projets</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
+            <div class="c-socials">
+                <a href="https://github.com/Moustapha205" target="_blank" class="c-soc">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="">GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/moustapha-kane-5058a9346" target="_blank" class="c-soc">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" alt="">LinkedIn
+                </a>
             </div>
         </div>
-    </nav>
-    <section class="cont">
-        <!-- Contact Form -->
-        <div class="contact-form">
-            <h2>Envoyez-moi un message</h2>
-            <form id="contactForm" class="form">
-                <div class="form-group">
-                    <label for="name">Nom complet</label>
-                    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+
+        <!-- ===== FORMULAIRE MULTI-ÉTAPES ===== -->
+        <div class="mf-wrap fade-up" style="--d:0.2s">
+
+            <!-- Barre de progression + dots -->
+            <div class="mf-progress" id="mfProgress">
+                <div class="mf-bar-bg">
+                    <div class="mf-bar" id="mfBar"></div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Adresse e-mail</label>
-                    <input type="email" id="email" name="email" placeholder="Votre e-mail" required>
+                <div class="mf-steps-dots">
+                    <div class="mf-dot active" id="dot1">1</div>
+                    <div class="mf-dot" id="dot2">2</div>
+                    <div class="mf-dot" id="dot3">3</div>
                 </div>
-                <div class="form-group">
-                    <label for="subject">Sujet</label>
-                    <input type="text" id="subject" name="subject" placeholder="Sujet du message" required>
+            </div>
+
+            <!-- Formulaire -->
+            <form id="mfForm" action="https://formspree.io/f/xpqorpdg" method="POST">
+
+                <!-- ÉTAPE 1 : Identité -->
+                <div class="mf-step active" id="step1">
+                    <div class="mf-lottie">
+                        <lottie-player
+                            src="https://assets10.lottiefiles.com/packages/lf20_touohxv0.json"
+                            background="transparent" speed="1"
+                            style="width:140px;height:140px;" loop autoplay>
+                        </lottie-player>
+                    </div>
+                    <h3>Faisons connaissance</h3>
+                    <div class="mf-group">
+                        <label>Votre nom complet</label>
+                        <input type="text" id="mfName" name="name" placeholder="Moustapha Kane" required>
+                    </div>
+                    <div class="mf-group">
+                        <label>Votre email</label>
+                        <input type="email" id="mfEmail" name="email" placeholder="votre@email.com" required>
+                    </div>
+                    <button type="button" class="btn-c" style="width:100%;" onclick="mfNext(1)">Continuer →</button>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="6" placeholder="Votre message..." required></textarea>
+
+                <!-- ÉTAPE 2 : Demande -->
+                <div class="mf-step" id="step2">
+                    <div class="mf-lottie">
+                        <lottie-player
+                            src="https://assets4.lottiefiles.com/packages/lf20_jcikwtux.json"
+                            background="transparent" speed="1"
+                            style="width:140px;height:140px;" loop autoplay>
+                        </lottie-player>
+                    </div>
+                    <h3>Votre demande</h3>
+                    <div class="mf-group">
+                        <label>Sujet</label>
+                        <input type="text" id="mfSubject" name="subject" placeholder="Opportunité, collaboration..." required>
+                    </div>
+                    <div class="mf-group">
+                        <label>Type de projet</label>
+                        <select id="mfType" name="type" required>
+                            <option value="">Sélectionnez...</option>
+                            <option value="emploi">Offre d'emploi</option>
+                            <option value="freelance">Mission freelance</option>
+                            <option value="stage">Stage / Alternance</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="mf-row">
+                        <button type="button" class="btn-g" onclick="mfPrev(2)">← Retour</button>
+                        <button type="button" class="btn-c" onclick="mfNext(2)">Continuer →</button>
+                    </div>
                 </div>
-                <button type="submit" class="btn">Envoyer le message</button>
+
+                <!-- ÉTAPE 3 : Message -->
+                <div class="mf-step" id="step3">
+                    <div class="mf-lottie">
+                        <lottie-player
+                            src="https://assets1.lottiefiles.com/packages/lf20_rovf9gzu.json"
+                            background="transparent" speed="1"
+                            style="width:140px;height:140px;" loop autoplay>
+                        </lottie-player>
+                    </div>
+                    <h3>Votre message</h3>
+                    <div class="mf-group">
+                        <label>Décrivez votre projet ou demande</label>
+                        <textarea id="mfMessage" name="message" rows="5" placeholder="Bonjour Moustapha, je souhaite..." required></textarea>
+                    </div>
+                    <div class="mf-row">
+                        <button type="button" class="btn-g" onclick="mfPrev(3)">← Retour</button>
+                        <button type="submit" class="btn-c" id="mfSubmit">Envoyer ✉️</button>
+                    </div>
+                </div>
+
             </form>
+
+            <!-- ===== MESSAGE DE SUCCÈS ===== -->
+            <div id="mfSuccess" class="mf-success">
+                <lottie-player
+                    src="https://assets2.lottiefiles.com/packages/lf20_jbrw3hcz.json"
+                    background="transparent" speed="1"
+                    style="width:160px;height:160px;" autoplay>
+                </lottie-player>
+                <h3>Message envoyé !</h3>
+                <p class="mf-success-text" id="mfSuccessText">
+                    Votre message a bien été reçu. Je vous répondrai très prochainement.
+                </p>
+                <div class="mf-success-badge" id="mfSuccessBadge"></div>
+                <p class="mf-note">Notre échange dans les <strong>24h ouvrées</strong> ⚡</p>
+            </div>
+
         </div>
+        <!-- fin mf-wrap -->
 
-    </section>
-    <!-- Contact Form -->
-   
-    
-    
-</body>
+    </div>
+</section>
 
-
-<!-- Footer -->
 <footer class="footer">
-    <div class="container footer-container">
-        <p>&copy; 2025 DevPortfolio - Tous droits réservés.</p>
-        <p>Créé avec ❤️ par Moustapha Mbacke Kane</p>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="index.html" class="logo"><span class="cyan">&lt;</span>MK<span class="cyan">/&gt;</span></a>
+            <p>Moustapha Mbacké Kane — Développeur Full Stack</p>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À propos</a>
+            <a href="projects.html">Projets</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-socials">
+            <a href="https://github.com/Moustapha205" target="_blank" class="soc-btn">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/moustapha-kane-5058a9346" target="_blank" class="soc-btn">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" alt="LinkedIn">
+            </a>
+        </div>
     </div>
-    <div class="social-links">
-        <a href="https://github.com/Moustapha205" target="_blank" class="social-btn github">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-        </a>
-        <a href="https://www.linkedin.com/in/moustapha-kane-5058a9346" target="_blank" class="social-btn linkedin">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" alt="LinkedIn">
-        </a>
-    </div>
+    <p class="footer-copy">&copy; 2025 Moustapha Kane — Tous droits réservés</p>
 </footer>
 
 <script src="script.js"></script>

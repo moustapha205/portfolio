@@ -3,75 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets - Portfolio Développeur Full Stack</title>
+    <title>Projets — Moustapha Kane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <span class="logo-bracket">&lt;</span>
-                <span class="logo-text">DevPortfolio</span>
-                <span class="logo-bracket">/&gt;</span>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<canvas id="bg-canvas"></canvas>
+
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="logo"><span class="cyan">&lt;</span>MK<span class="cyan">/&gt;</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="nl">Accueil</a></li>
+            <li><a href="about.html" class="nl">À propos</a></li>
+            <li><a href="projects.html" class="nl active">Projets</a></li>
+            <li><a href="contact.html" class="nl">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav-btn">Me contacter</a>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+</nav>
+
+<section class="page-top">
+    <div class="wrap">
+        <span class="tag fade-up">Projets</span>
+        <h1 class="page-title fade-up">Mes <span class="cyan">réalisations</span></h1>
+        <p class="page-sub fade-up">Du front-end au back-end — des projets concrets et fonctionnels.</p>
+    </div>
+</section>
+
+<section class="projs-full">
+    <div class="wrap">
+
+        <div class="pf-card fade-up">
+            <div class="pf-img"><img src="images/photositeecommerce.png" alt="ShoppingFree"><div class="pf-num">01</div></div>
+            <div class="pf-info">
+                <div class="proj-tags"><span>PHP / Symfony</span><span>MySQL</span><span>Bootstrap 5</span><span>Stripe API</span><span>Twig</span></div>
+                <h2>ShoppingFree — Plateforme E-commerce</h2>
+                <p>Plateforme de vente en ligne complète avec gestion des produits, panier dynamique, authentification utilisateurs et paiement sécurisé Stripe.</p>
+                <ul class="pf-list">
+                    <li>Interface responsive Mobile-First avec Bootstrap 5 et Twig</li>
+                    <li>Authentification et gestion des rôles (Symfony Security Bundle)</li>
+                    <li>Panier persistant en session et synchronisé en BDD</li>
+                    <li>Intégration API Stripe avec Webhooks de confirmation</li>
+                    <li>Protection OWASP : CSRF, injections SQL, hachage Bcrypt</li>
+                </ul>
+                <div class="pf-actions"><a href="#" class="btn-c">Voir le projet →</a><a href="https://github.com/Moustapha205" target="_blank" class="btn-g">GitHub →</a></div>
             </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link">Accueil</a></li>
-                <li><a href="about.html" class="nav-link">À propos</a></li>
-                <li><a href="projects.html" class="nav-link active">Projets</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
+        </div>
+
+        <div class="pf-card pf-rev fade-up">
+            <div class="pf-img pf-dark">
+                <div class="pf-placeholder"><div class="pp-icon">🎬</div><p>Vidéo Content-SEO.ai</p><span>1920×1080 — 30fps — 15s</span></div>
+                <div class="pf-num">02</div>
+            </div>
+            <div class="pf-info">
+                <div class="proj-tags"><span>React</span><span>TypeScript</span><span>Remotion</span><span>Node.js</span></div>
+                <h2>Landing Page Vidéo — NEOTECHRAMS</h2>
+                <p>Vidéo promotionnelle de 15 secondes générée par le code React avec Remotion — "video as code" — pour le SaaS Content-SEO.ai.</p>
+                <ul class="pf-list">
+                    <li>4 scènes animées : Logo, Dashboard, IA en action, CTA</li>
+                    <li>Hooks Remotion : useCurrentFrame, interpolate, spring</li>
+                    <li>Export MP4 Full HD via Chrome Headless Shell</li>
+                    <li>Workflow collaboratif GitHub (feature/moustapha-video)</li>
+                </ul>
+                <div class="pf-actions"><a href="https://github.com/Moustapha205" target="_blank" class="btn-c">GitHub →</a></div>
             </div>
         </div>
-    </nav>
 
-    <!-- Projects Section -->
-    <section class="projects">
-        <div class="container">
-            <h1>Mes Projets</h1>
-            <p>Voici une sélection de mes réalisations les plus récentes.</p>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="images/photoapplireact.png" alt="Projet 1">
-                    <h3>Application de gestion React</h3>
-                    <p>Une application web pour gérer les objectifs du jour.</p>
-                    <a href="https://moustapha-app-react.netlify.app/" target="_blank" class="btn">Voir le projet</a>
-                </div>
-
-                <div class="project-card">
-                    <img src="images/photoportfolio.png" alt="Projet 2">
-                    <h3>Portfolio interactif</h3>
-                    <p>Un portfolio moderne avec animations et dark mode.</p>
-                    <a href="index.html" class="btn">Voir le projet</a>
-                </div>
-
-                <div class="project-card">
-                    <img src="images/photositeecommerce.png" alt="Site E-commerce">
-                    <h3>Site E-commerce</h3>
-                    <p>Une plateforme de vente en ligne avec panier, paiement et gestion des produits.</p>
-                    <a href="#" class="btn">Voir le projet</a>
-                </div>
+        <div class="pf-card fade-up">
+            <div class="pf-img pf-dark">
+                <div class="pf-placeholder"><div class="pp-icon">📋</div><p>SmartForm PBE</p><span>5 étapes — PHP/WordPress</span></div>
+                <div class="pf-num">03</div>
+            </div>
+            <div class="pf-info">
+                <div class="proj-tags"><span>PHP / WordPress</span><span>MySQL</span><span>JavaScript</span><span>Fetch API</span></div>
+                <h2>SmartForm PBE — Formulaire multi-étapes</h2>
+                <p>Formulaire intelligent en 5 étapes avec barre de progression, animations Lottie et back-end PHP/WordPress sécurisé pour qualifier des leads.</p>
+                <ul class="pf-list">
+                    <li>5 étapes avec validation client et barre de progression animée</li>
+                    <li>API REST Countries — liste des pays par continent</li>
+                    <li>Backend : sanitization, protection CSRF (nonce WordPress)</li>
+                    <li>Enregistrement MySQL via $wpdb avec requêtes préparées</li>
+                    <li>Envoi email HTML automatique via wp_mail()</li>
+                </ul>
+                <div class="pf-actions"><a href="https://github.com/Moustapha205" target="_blank" class="btn-c">GitHub →</a></div>
             </div>
         </div>
-    </section>
 
-    <footer class="footer">
-        <div class="container footer-container">
-            <p>&copy; 2025 DevPortfolio - Tous droits réservés.</p>
-            <p>Créé avec ❤️ par Moustapha Mbacke Kane</p>
+        <div class="pf-card pf-rev fade-up">
+            <div class="pf-img"><img src="images/photoapplireact.png" alt="App React"><div class="pf-num">04</div></div>
+            <div class="pf-info">
+                <div class="proj-tags"><span>React</span><span>JavaScript</span><span>CSS3</span><span>Netlify</span></div>
+                <h2>Objectifs du jour — Application React</h2>
+                <p>Application de gestion d'objectifs quotidiens développée avec React et déployée sur Netlify.</p>
+                <ul class="pf-list">
+                    <li>Composants React avec useState et useEffect</li>
+                    <li>Ajout, suppression et validation d'objectifs</li>
+                    <li>Design responsive avec animations CSS</li>
+                    <li>Déployée en ligne sur Netlify</li>
+                </ul>
+                <div class="pf-actions"><a href="https://moustapha-app-react.netlify.app/" target="_blank" class="btn-c">Voir en ligne →</a><a href="https://github.com/Moustapha205" target="_blank" class="btn-g">GitHub →</a></div>
+            </div>
         </div>
-        <div class="social-links">
-            <a href="https://github.com/Moustapha205" target="_blank" class="social-btn github">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-            </a>
-            <a href="https://www.linkedin.com/in/moustapha-kane-5058a9346" target="_blank" class="social-btn linkedin">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" alt="LinkedIn">
-            </a>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand"><a href="index.html" class="logo"><span class="cyan">&lt;</span>MK<span class="cyan">/&gt;</span></a><p>Moustapha Mbacké Kane — Développeur Full Stack</p></div>
+        <div class="footer-links"><a href="index.html">Accueil</a><a href="about.html">À propos</a><a href="projects.html">Projets</a><a href="contact.html">Contact</a></div>
+        <div class="footer-socials">
+            <a href="https://github.com/Moustapha205" target="_blank" class="soc-btn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"></a>
+            <a href="https://www.linkedin.com/in/moustapha-kane-5058a9346" target="_blank" class="soc-btn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" alt="LinkedIn"></a>
         </div>
-    </footer>
-    <script src="script.js"></script>
+    </div>
+    <p class="footer-copy">&copy; 2025 Moustapha Kane — Tous droits réservés</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
